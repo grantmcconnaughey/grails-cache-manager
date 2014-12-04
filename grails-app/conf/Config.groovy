@@ -20,3 +20,6 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+grails.plugin.cachemanager.excludedCacheNames = []
+grails.plugin.cacheManager.clearOnNewTTL = true
