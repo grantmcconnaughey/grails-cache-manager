@@ -23,11 +23,19 @@
         }
 
         .enabled {
-            background-color: rgba(28, 184, 65, 0.25) !important;
+            background-color: rgb(28, 184, 65);
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
         }
 
         .disabled {
-            background-color: rgba(202, 60, 60, 0.25) !important;
+            background-color: rgb(202, 60, 60);
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -60,7 +68,9 @@
             <g:each in="${caches}" var="cache">
                 <tr>
                     <td>${cache.name}</td>
-                    <td class="${cache.nativeCache.isDisabled() ? 'disabled' : 'enabled'}">${cache.nativeCache.isDisabled() ? 'Disabled' : 'Enabled'}</td>
+                    <td>
+                        <span class="${cache.nativeCache.isDisabled() ? 'disabled' : 'enabled'}"></span>
+                    </td>
                     <cacheManager:appSupportsTTL>
                         <td style="text-align: right;">${cache.nativeCache.cacheConfiguration.timeToLiveSeconds}</td>
                         <td>
@@ -72,7 +82,9 @@
                             </g:form>
                         </td>
                     </cacheManager:appSupportsTTL>
-                    <td><g:link action="clear" params="[cacheName: cache.name]" class="pure-button">Clear</g:link></td>
+                    <td>
+                        <g:link action="clear" params="[cacheName: cache.name]" class="pure-button">Clear</g:link>
+                    </td>
                 </tr>
             </g:each>
             </tbody>
