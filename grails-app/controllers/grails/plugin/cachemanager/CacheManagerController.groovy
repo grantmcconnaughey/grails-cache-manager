@@ -1,25 +1,23 @@
 package grails.plugin.cachemanager
 
+import org.springframework.cache.Cache
+
 class CacheManagerController {
 
-    def grailsCacheManager
     def grailsApplication
+    def grailsCacheManager
 
     static defaultAction = "list"
 
     def list() {
-        def caches = []
+        List<Cache> caches = []
         for (cacheName in grailsCacheManager.cacheNames) {
             if ( !(cacheName in grailsApplication.config.grails.plugin.cachemanager.excludedCacheNames) ) {
                 caches << grailsCacheManager.getCache(cacheName)
             }
         }
 
-        def sortedCaches = caches.sort { a, b ->
-            a.name <=> b.name
-        }
-
-        [caches: sortedCaches]
+        [caches: caches.sort { a, b -> a.name <=> b.name }]
     }
 
     def clear(String cacheName) {
