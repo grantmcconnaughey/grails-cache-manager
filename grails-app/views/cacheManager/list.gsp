@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="layout" content="${grailsApplication.config.grails.plugin.cacheManager.layout}" />
     <title>App Caches</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
@@ -22,20 +23,20 @@
             margin-left: 1em;
         }
 
-        .enabled {
-            background-color: rgb(28, 184, 65);
+        .enabled,
+        .disabled {
             display: inline-block;
             width: 1em;
             height: 1em;
             border-radius: 50%;
         }
 
+        .enabled {
+            background-color: rgb(28, 184, 65);
+        }
+
         .disabled {
             background-color: rgb(202, 60, 60);
-            display: inline-block;
-            width: 1em;
-            height: 1em;
-            border-radius: 50%;
         }
     </style>
 </head>
@@ -52,6 +53,15 @@
             </ul>
         </g:if>
 
+        <h2>Bulk Clear Caches</h2>
+        <div>
+            <g:link controller="cacheManager" action="clearAllCaches" class="pure-button">Clear All Caches</g:link>
+            <g:link controller="cacheManager" action="clearBlocksCache" class="pure-button">Clear Blocks Cache</g:link>
+            <g:link controller="cacheManager" action="clearTemplatesCache" class="pure-button">Clear Templates Cache</g:link>
+        </div>
+
+
+        <h2>Manage Individual Caches</h2>
         <table class="pure-table pure-table-striped">
             <thead>
                 <tr>
