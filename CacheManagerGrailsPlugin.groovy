@@ -10,7 +10,7 @@ class CacheManagerGrailsPlugin {
     def author = "Grant McConnaughey"
     def authorEmail = "grantmcconnaughey@gmail.com"
     def description = '''\
-A simple admin tool to manage the various caches in a Grails app.
+A simple admin interface to manage the various caches in a Grails app.
 '''
 
     // URL to the plugin's documentation
