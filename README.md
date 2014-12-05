@@ -2,6 +2,8 @@
 
 **A simple admin interface to manage the various caches in a Grails app.**
 
+![Screenshot](https://dl.dropboxusercontent.com/u/11285872/cache-manager.png)
+
 ## Installation
 
 To install the latest version of the plugin add this to your `BuildConfig.groovy` in the plugins section (be sure to use the latest version):
