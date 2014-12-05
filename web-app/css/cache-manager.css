@@ -8,6 +8,10 @@
     padding: .3em 1em;
 }
 
+.enabled-disabled-indicator {
+    text-align: center;
+}
+
 .enabled,
 .disabled {
     display: inline-block;

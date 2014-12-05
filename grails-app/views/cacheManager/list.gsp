@@ -52,7 +52,7 @@
                 <tr>
                     <td>${cache.name}</td>
                     <cacheManager:ehcacheInstalled>
-                    <td style="text-align: center;">
+                    <td class="enabled-disabled-indicator">
                         <span class="${cache.nativeCache.isDisabled() ? 'disabled' : 'enabled'}"></span>
                     </td>
                         <td class="ttl-seconds">${cache.nativeCache.cacheConfiguration.timeToLiveSeconds}</td>
