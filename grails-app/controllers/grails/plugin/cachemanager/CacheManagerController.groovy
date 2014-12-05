@@ -13,7 +13,7 @@ class CacheManagerController {
     def list() {
         List<Cache> caches = []
         for (cacheName in grailsCacheManager.cacheNames) {
-            if ( !(cacheName in grailsApplication.config.grails.plugin.cachemanager.excludedCacheNames) ) {
+            if ( !(cacheName in grailsApplication.mergedConfig.grails.plugin.cachemanager.excludedCacheNames) ) {
                 caches << grailsCacheManager.getCache(cacheName)
             }
         }
@@ -44,7 +44,7 @@ class CacheManagerController {
 
         def cache = grailsCacheManager.getCache(cacheName)
 
-        if (grailsApplication.config.grails.plugin.cacheManager.clearOnNewTTL) {
+        if (grailsApplication.mergedConfig.grails.plugin.cachemanager.clearOnNewTTL) {
             cache.clear()
         }
 
@@ -64,7 +64,7 @@ class CacheManagerController {
             def config = nativeCache.cacheConfiguration
             config?.setTimeToLiveSeconds(newTimeToLiveSeconds)
 
-            if (grailsApplication.config.grails.plugin.cacheManager.clearOnNewTTL) {
+            if (grailsApplication.mergedConfig.grails.plugin.cachemanager.clearOnNewTTL) {
                 flash.message = message(code: 'cacheManager.cache.clearedAndNewTTL',
                                         args: [cacheName, newTimeToLiveSeconds],
                                         default: 'Cache {0} cleared and Time To Live set to {1} seconds.')

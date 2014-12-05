@@ -1,0 +1,29 @@
+#content {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.go-button {
+    margin-left: 1em;
+    padding: .3em 1em;
+}
+
+.enabled,
+.disabled {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
+.enabled {
+    background-color: rgb(28, 184, 65);
+}
+
+.disabled {
+    background-color: rgb(202, 60, 60);
+}
+
+.ttl-seconds {
+    text-align: right;
+}

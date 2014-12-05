@@ -2,21 +2,18 @@ package grails.plugin.cachemanager
 
 class CacheManagerTagLib {
 
-    static defaultEncodeAs = [taglib: 'html']
     static namespace = "cacheManager"
 
     def pluginManager
 
-    static final TTL_CACHE_PLUGINS = ['cache-ehcache']
+    static final EHCACHE_PLUGIN_NAME = 'cacheEhcache'
 
-    def appSupportsTTL = { attrs, body ->
+    def ehcacheInstalled = { attrs, body ->
         def installedPluginNames = pluginManager.allPlugins.collect { it.name }
         def ttlCachePluginInstalled = false
 
-        for (cachePlugin in TTL_CACHE_PLUGINS) {
-            if (installedPluginNames.contains(cachePlugin)) {
-                ttlCachePluginInstalled = true
-            }
+        if (installedPluginNames.contains(EHCACHE_PLUGIN_NAME)) {
+            ttlCachePluginInstalled = true
         }
         
         if (ttlCachePluginInstalled) {
