@@ -5,6 +5,9 @@
 
 .go-button {
     margin-left: 1em;
+}
+
+#cache-manager-table .pure-button {
     padding: .3em 1em;
 }
 

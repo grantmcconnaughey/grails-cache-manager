@@ -8,7 +8,7 @@ class CacheManagerGrailsPlugin {
         "grails-app/views/error.gsp"
     ]
 
-    def title = "Cache Manager Plugin" // Headline display name of the plugin
+    def title = "Grails Cache Manager Plugin" // Headline display name of the plugin
     def author = "Grant McConnaughey"
     def authorEmail = "grantmcconnaughey@gmail.com"
     def description = '''\

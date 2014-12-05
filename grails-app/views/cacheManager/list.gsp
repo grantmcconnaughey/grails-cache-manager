@@ -26,7 +26,7 @@
             </ul>
         </g:if>
 
-        <h2>Manage Bulk Caches</h2>
+        <h2>Bulk Manage Caches</h2>
         <div>
             <g:link controller="cacheManager" action="clearAllCaches" class="pure-button">Clear All Caches</g:link>
             <g:link controller="cacheManager" action="clearBlocksCache" class="pure-button">Clear Blocks Cache</g:link>
@@ -40,8 +40,8 @@
                 <tr>
                     <th>Cache Name</th>
                     <cacheManager:ehcacheInstalled>
-                        <th>Enabled?</th>
-                        <th>Time To Live (seconds)</th>
+                        <th class="enabled-disabled-indicator">Enabled?</th>
+                        <th class="ttl-seconds">Time To Live (seconds)</th>
                         <th>Set new Time To Live</th>
                     </cacheManager:ehcacheInstalled>
                     <th>Clear Cache</th>
@@ -52,10 +52,17 @@
                 <tr>
                     <td>${cache.name}</td>
                     <cacheManager:ehcacheInstalled>
-                    <td class="enabled-disabled-indicator">
-                        <span class="${cache.nativeCache.isDisabled() ? 'disabled' : 'enabled'}"></span>
-                    </td>
-                        <td class="ttl-seconds">${cache.nativeCache.cacheConfiguration.timeToLiveSeconds}</td>
+                        <td class="enabled-disabled-indicator">
+                            <span class="${cache.nativeCache.isDisabled() ? 'disabled' : 'enabled'}"></span>
+                        </td>
+                        <td class="ttl-seconds">
+                            <g:if test="${cache.nativeCache.isDisabled()}">
+                                0
+                            </g:if>
+                            <g:else>
+                                <g:formatNumber number="${cache.nativeCache.cacheConfiguration.timeToLiveSeconds}" type="number" />
+                            </g:else>
+                        </td>
                         <td>
                             <g:form action="changeTimeToLive" method="POST">
                                 <g:select name="newTimeToLiveSeconds" optionKey="key" optionValue="value"
