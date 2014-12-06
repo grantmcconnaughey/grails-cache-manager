@@ -20,8 +20,8 @@ A simple admin interface to manage the various caches in a Grails app.
     def license = "APACHE"
 
     // Location of the plugin's issue tracker.
-    def issueManagement = [ system: "Github", url: "https://github.com/grantmcconnaughey/Grails-Cache-Manager/issues" ]
+    def issueManagement = [ system: "Github", url: "https://github.com/grantmcconnaughey/grails-cache-manager/issues" ]
 
     // Online location of the plugin's browseable source code.
-    def scm = [ url: "https://github.com/grantmcconnaughey/Grails-Cache-Manager" ]
+    def scm = [ url: "https://github.com/grantmcconnaughey/grails-cache-manager" ]
 }
