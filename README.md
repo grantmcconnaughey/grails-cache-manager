@@ -51,6 +51,6 @@ You will likely want to restrict access to the cache manager when you deploy a l
 ### Spring Security example
 ```groovy
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-    '/cacheManager/**': ['ROLE_ADMIN']
+    '/cachemanager/**': ['ROLE_ADMIN']
 ]
 ```
