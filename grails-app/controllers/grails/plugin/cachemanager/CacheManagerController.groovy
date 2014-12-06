@@ -4,21 +4,17 @@ import org.springframework.cache.Cache
 
 class CacheManagerController {
 
-    def grailsApplication
     def grailsCacheAdminService
     def grailsCacheManager
 
     static defaultAction = "list"
 
     def list() {
-        List<Cache> caches = []
-        for (cacheName in grailsCacheManager.cacheNames) {
-            if ( !(cacheName in grailsApplication.mergedConfig.grails.plugin.cachemanager.excludedCacheNames) ) {
-                caches << grailsCacheManager.getCache(cacheName)
-            }
-        }
-
-        [caches: caches.sort { a, b -> a.name <=> b.name }]
+        List<Cache> caches = grailsCacheManager.cacheNames
+            .findAll { !(it in pluginConfig.excludedCacheNames) }
+            .collect { grailsCacheManager.getCache(it) }
+            .sort { it.name }
+        [caches: caches]
     }
 
     def clear(String cacheName) {
@@ -44,7 +40,7 @@ class CacheManagerController {
 
         def cache = grailsCacheManager.getCache(cacheName)
 
-        if (grailsApplication.mergedConfig.grails.plugin.cachemanager.clearOnNewTTL) {
+        if (pluginConfig.clearOnNewTTL) {
             cache.clear()
         }
 
@@ -64,7 +60,7 @@ class CacheManagerController {
             def config = nativeCache.cacheConfiguration
             config?.setTimeToLiveSeconds(newTimeToLiveSeconds)
 
-            if (grailsApplication.mergedConfig.grails.plugin.cachemanager.clearOnNewTTL) {
+            if (pluginConfig.clearOnNewTTL) {
                 flash.message = message(code: 'cacheManager.cache.clearedAndNewTTL',
                                         args: [cacheName, newTimeToLiveSeconds],
                                         default: 'Cache {0} cleared and Time To Live set to {1} seconds.')
@@ -94,5 +90,9 @@ class CacheManagerController {
         grailsCacheAdminService.clearTemplatesCache()
         flash.message = message(code: 'cacheManager.cache.templatesCache.cleared', default: 'Templates cache cleared.')
         redirect action: 'list'
+    }
+
+    protected getPluginConfig() {
+        grailsApplication.mergedConfig.grails.plugin.cachemanager
     }
 }
