@@ -2,7 +2,7 @@
 
 **A simple admin interface to manage the various caches in a Grails app.**
 
-![Screenshot](https://dl.dropboxusercontent.com/u/11285872/cache-manager.png)
+![Screenshot](https://dl.dropboxusercontent.com/u/11285872/cache-manager2.png)
 
 ## Installation
 
