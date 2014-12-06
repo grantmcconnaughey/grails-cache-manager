@@ -13,7 +13,7 @@ compile ':cache-manager:0.9.0'
 
 ## Compatibility
 
-This plugin is currently only available with the [Grails Cache Plugin](http://grails.org/plugin/cache) or with the [Grails Cache Plugin](http://grails.org/plugin/cache) **and** [Ehcache Cache Plugin](http://grails.org/plugin/cache-ehcache). If the Ehcache Cache Plugin is also installed then the cache manager interface will including settings for Time to Live and disabling/enabling a cache.
+This plugin is currently only compatible with the [Grails Cache Plugin](http://grails.org/plugin/cache) by itself or with the Grails Cache Plugin and [Ehcache Cache Plugin](http://grails.org/plugin/cache-ehcache) together. If the Ehcache Cache Plugin is also installed then the cache manager interface will including settings for Time to Live and disabling/enabling a cache.
 
 ## Usage
 
@@ -35,14 +35,14 @@ This plugin contains a single admin view for controller the caches in a Grails a
 
 ## Configuration
 
-The Grails Cache Manager Plugin allows configuration to change the look and functionality of the interface. All config values start with `grails.plugin.cachemanager`.
+The Grails Cache Manager Plugin allows configuration to change the look and functionality of the interface. **All config values start with** `grails.plugin.cachemanager`.
 
-| Name               | Default      | Description                                                                              |
-| ------------------ | ------------ | ---------------------------------------------------------------------------------------- |
-| excludedCacheNames | `[]`         | A list of cache names that should not be included in the cache manager page.             |
-| clearOnNewTTL      | `true`       | True if the cache manager should clear a cache when its Time To Live setting is changed. |
-| layout             | `"main"`     | The layout to use for the cache manager.                                                 |
-| newTTLValues       | `[0: 'None (Disable Cache)', (60 * 60): 'One Hour', (60 * 60 * 24): 'One Day', (60 * 60 * 24 * 7): 'One Week']` | A Map for the New Time To Live select box, where the key is the new TTL and the value is a String containing the value's description. |
+| Name                 | Default      | Description                                                                              |
+| -------------------- | ------------ | ---------------------------------------------------------------------------------------- |
+| `excludedCacheNames` | `[]`         | A list of cache names that should not be included in the cache manager page.             |
+| `clearOnNewTTL`      | `true`       | True if the cache manager should clear a cache when its Time To Live setting is changed. |
+| `layout`             | `"main"`     | The layout to use for the cache manager.                                                 |
+| `newTTLValues`       | `[0: 'None (Disable Cache)', (60 * 60): 'One Hour', (60 * 60 * 24): 'One Day', (60 * 60 * 24 * 7): 'One Week']` | A Map for the New Time To Live select box, where the key is the new TTL and the value is a String containing the value's description. |
 
 ## Security
 
