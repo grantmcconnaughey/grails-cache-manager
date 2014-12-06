@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="layout" content="${grailsApplication.mergedConfig.grails.plugin.cachemanager.layout}" />
-    <title>App Caches</title>
+    <title>Cache Manager</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/buttons-min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/tables-min.css" />
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'cache-manager.css', plugin: 'cache-manager')}" />
