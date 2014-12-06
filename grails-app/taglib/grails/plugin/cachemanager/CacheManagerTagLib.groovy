@@ -6,16 +6,11 @@ class CacheManagerTagLib {
 
     def pluginManager
 
-    static final EHCACHE_PLUGIN_NAME = 'cacheEhcache'
+    static final String EHCACHE_PLUGIN_NAME = 'cacheEhcache'
 
     def ehcacheInstalled = { attrs, body ->
-        def installedPluginNames = pluginManager.allPlugins.collect { it.name }
-        def ttlCachePluginInstalled = false
+        boolean ttlCachePluginInstalled = pluginManager.allPlugins.any { it.name == EHCACHE_PLUGIN_NAME }
 
-        if (installedPluginNames.contains(EHCACHE_PLUGIN_NAME)) {
-            ttlCachePluginInstalled = true
-        }
-        
         if (ttlCachePluginInstalled) {
             out << body()
         }
