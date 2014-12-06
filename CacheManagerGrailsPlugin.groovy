@@ -14,7 +14,7 @@ A simple admin interface to manage the various caches in a Grails app.
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/cache-manager"
+    def documentation = "https://github.com/grantmcconnaughey/grails-cache-manager"
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'
     def license = "APACHE"
