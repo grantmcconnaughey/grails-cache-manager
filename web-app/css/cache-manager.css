@@ -3,12 +3,17 @@
     margin: 0 auto;
 }
 
-.go-button {
-    margin-left: 1em;
+.cache-manager .pure-button {
+    color: #000;
 }
 
 #cache-manager-table .pure-button {
     padding: .3em 1em;
+}
+
+.cache-manager .go-button {
+    margin-left: 1em;
+    color: #fff;
 }
 
 .enabled-disabled-indicator {
@@ -21,6 +26,7 @@
     width: 1em;
     height: 1em;
     border-radius: 50%;
+    vertical-align: middle;
 }
 
 .enabled {

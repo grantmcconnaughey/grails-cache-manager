@@ -14,7 +14,7 @@
             <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label" default="Home" /></a></li>
         </ul>
     </div>
-    <div id="content">
+    <div id="content" class="cache-manager">
         <h1>Cache Manager</h1>
 
         <g:if test="${flash.message}">
