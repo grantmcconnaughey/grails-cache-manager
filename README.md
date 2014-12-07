@@ -13,29 +13,29 @@ compile ':cache-manager:1.0.0'
 
 ## Compatibility
 
-This plugin is currently only compatible with the [Grails Cache Plugin](http://grails.org/plugin/cache) by itself or with the Grails Cache Plugin and [Ehcache Cache Plugin](http://grails.org/plugin/cache-ehcache) together. If the Ehcache Cache Plugin is also installed then the cache manager interface will including settings for Time to Live and disabling/enabling a cache.
+This plugin is currently only compatible with the [Grails Cache Plugin](http://grails.org/plugin/cache) by itself or with the Grails Cache Plugin and [Ehcache Cache Plugin](http://grails.org/plugin/cache-ehcache) together. If the Ehcache Cache Plugin is also installed then the cache manager interface will including settings for Time To Live and disabling/enabling a cache.
 
 ## Usage
 
-This plugin contains a single admin view for controller the caches in a Grails app. Navigate to `/cacheManager/list` to view the caches. This interface allows you to do the following:
+This plugin contains a single admin view for controller the caches in a Grails app. Navigate to `/cacheManager/` to view the caches. This interface allows you to do the following:
 
 ### Bulk Manage Caches
-* **Clear All Caches**
-* **Clear Blocks Cache**
-* **Clear Templates Cache**
+* Clear All Caches
+* Clear Blocks Cache
+* Clear Templates Cache
 
 ### Manage Individual Caches
-* **View the caches in your app**
-* **Clear an individual cache**
+* View the caches in your app
+* Clear a cache
 
-### Manage Individual Caches (with the Ehcache Plugin)
-* **View each cache's current Time To Live**
-* **Set a new Time To Live**
-* **Disable a cache**
+### Manage Individual Caches (with Ehcache Plugin)
+* View a cache's current Time To Live
+* Set a new Time To Live for a cache
+* Disable and enable a cache
 
 ## Configuration
 
-The Grails Cache Manager Plugin allows configuration to change the look and functionality of the interface. **All config values start with** `grails.plugin.cachemanager`.
+The Grails Cache Manager Plugin allows configuration to change the look and functionality of the interface. **All config values start with** `grails.plugin.cachemanager`**.**
 
 | Name                 | Default      | Description                                                                              |
 | -------------------- | ------------ | ---------------------------------------------------------------------------------------- |
@@ -46,9 +46,9 @@ The Grails Cache Manager Plugin allows configuration to change the look and func
 
 ## Security
 
-You will likely want to restrict access to the cache manager when you deploy a live app using this plugin. The URL path `/cacheManager/list` should be secured.
+You will likely want to restrict access to the cache manager when you deploy a live app using this plugin. The URL path `/cacheManager/**` should be secured.
 
-### Spring Security example
+### Spring Security Example
 ```groovy
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/cachemanager/**': ['ROLE_ADMIN']
