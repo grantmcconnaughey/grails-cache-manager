@@ -1,5 +1,5 @@
 class CacheManagerGrailsPlugin {
-    def version = "1.0.0"
+    def version = "1.0.1-SNAPSHOT"
     def grailsVersion = "2.0 > *"
     def title = "Grails Cache Manager Plugin"
     def author = "Grant McConnaughey"
